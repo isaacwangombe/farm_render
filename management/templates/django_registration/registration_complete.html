@@ -1,0 +1,82 @@
+{%extends 'business/base.html'%}{% load django_bootstrap5%}{%load static%}
+
+{% block content %}
+{{block.super}}
+
+<section style="">
+  <div class="">
+    <center>
+      <img class="demo-bg" src="/static/images/back2.jpg" alt="">
+      <div class="welcome d-flex justify-content-center align-items-center h-50">
+        <div class="mt-5 align-items-center w-20">
+          <h1 class="for-you">Farm Hand.</h1>
+          <h2 class="for-you">Your Farm management matters.</h2>
+          {% if user.is_authenticated %}
+          <h1 class="for-you"> Welcome Back!</h1> <br><br>
+
+          <a href="{%url 'home' user.id%}"><button class="btn">To your Dashboard</button></a>
+          {%else%}
+          <h1 class="for-you"> Start Today!</h1> <br><br>
+          <a class='btn btn-default' href="/accounts/register">Register</a>
+          <a class='btn btn-default' href="/accounts/login">Login</a>
+          <p class="for-you2">All types of farm animals and produce!</p><br><br><br>
+
+          {%endif%}
+        </div>
+
+    </center>
+
+  </div>
+
+</section>
+
+
+
+
+<style>
+  section {
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    background-color: black;
+
+  }
+
+  .demo-bg {
+    opacity: 0.2;
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .welcome {
+    position: relative;
+    color: white;
+  }
+
+  .btn {
+    margin: 5px;
+    background-color: #11b42c;
+    border-style: solid;
+    width: fit-content;
+    padding: 10px 10px;
+    color: white;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: 0.5s;
+    letter-spacing: 4px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    color: #050801;
+  }
+</style>
+
+{% endblock%}

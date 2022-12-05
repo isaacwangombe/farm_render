@@ -1,0 +1,30 @@
+{%extends 'business/base.html'%}{% load django_bootstrap5%}
+
+{% block content %}
+{{block.super}}
+
+<center>
+<form class="form" action="{%url 'new_revenue' batch.id%}" method="post" enctype="multipart/form-data">
+  {%csrf_token%}
+
+  {% bootstrap_form form%}
+  <input type="submit" class="btn btn-success btn-lg" value="Post">
+</form>
+<a href="{% url 'new_customer' batch.id%}"><button class="btn">New Customer</button></a>
+
+</center>
+<style>
+	.form{
+    margin: 40px;
+    width: 40vw;
+	  padding: 20px;
+	  background-color: rgba(41, 162, 1, 0.575);
+	  color: rgb(0, 0, 0);
+	  border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.5);
+
+	}
+
+</style>
+
+{% endblock%}

@@ -1,0 +1,143 @@
+{%extends 'business/base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <center>
+        <h2> Add a Venture </h2>
+        <a class=" btn nav-link active" aria-current="page" href="{% url 'new_batch' %}">New Venture</a>
+    </center>
+    <div class="body">
+        {% for project in projects%}
+        <a href="{% url 'batch' project.id%}" style="padding: 20px ;">
+            <div class="hover hover-2 text-white rounded" style="background-color: black;"><img style="opacity: 0.5;" src="{{project.picture.url}} " alt="">
+                <div class="hover-overlay"></div>
+                <div class="hover-2-content px-5 py-4">
+                    <h3 class="hover-2-title text-uppercase font-weight-bold mb-0"> <span
+                            class="font-weight-light" style="color: rgb(255, 255, 255);">{{project.start_date}}-{{project.end_date}}</h3>
+                    <h4 class="hover-2-description  mb-0"><strong>Animal Type: </strong>{{project.farm}}</h4>
+                    <p class="hover-2-user  mb-0"><strong>Number: </strong>{{project.purchased}}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor%}
+    </div>
+</div>
+
+
+<style>
+    .body {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(40rem, 2fr));
+    }
+
+    .hover {
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 60%;
+    }
+
+    @media (min-width: 60em) {
+        .featured {
+            grid-row: span 2;
+            grid-column: span 2;
+            font-size: calc(100% + 0.1vw);
+        }
+    }
+
+    .hover-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 90;
+        transition: all 0.4s;
+    }
+
+    .hover img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s;
+    }
+
+    .hover-content {
+        position: relative;
+        z-index: 99;
+    }
+
+    .hover-2 .hover-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+    }
+
+    .hover-2-title {
+        position: absolute;
+        font-size: calc(150% + 0.1vw);
+        top: 50%;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        z-index: 99;
+        transition: all 0.3s;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .hover-2-description {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        left: 0;
+        text-align: center;
+        z-index: 99;
+        transition: all 0.3s;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .hover-2-user {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        left: 0;
+        text-align: center;
+        z-index: 99;
+        transition: all 0.3s;
+    }
+
+    .hover-2:hover .hover-2-title {
+        transform: translateY(-1rem);
+    }
+
+    .hover-2:hover .hover-2-description {
+        bottom: 2em;
+        opacity: 1;
+    }
+
+    .hover-2:hover .hover-2-user {
+        bottom: 0.2rem;
+        opacity: 1;
+    }
+
+    .hover-2:hover .hover-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+    }
+</style>
+
+<p>{{test}}</p>
+{% endblock %}

@@ -1,0 +1,31 @@
+{%extends 'business/base.html'%}{% load django_bootstrap5%}
+
+{% block content %}
+{{block.super}}
+
+<center>
+  <form class="form" action="{%url 'new_batch'%}" method="POST" enctype="multipart/form-data">
+    <h2>Kindly input your new venture info</h2>
+
+    {%csrf_token%}
+
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-success btn-lg" value="Post">
+  </form>
+
+</center>
+<style>
+  .form {
+    margin: 40px;
+    width: 40vw;
+    padding: 20px;
+    background-color: rgba(41, 162, 1, 0.575);
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);
+
+  }
+</style>
+
+
+{% endblock%}
