@@ -5,6 +5,8 @@ from django.db.models import Avg, Sum, Count, Max
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.db.models.signals import pre_save
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 
@@ -12,7 +14,7 @@ from django.db.models.signals import pre_save
 
 class Batch(models.Model):
 	farm = models.CharField(max_length=30)
-	picture = models.ImageField(upload_to = 'batch/',default='batch/default.jpg')
+	picture = CloudinaryField('image')
 	purchased = models.IntegerField()
 	unit_price = models.IntegerField()
 	projected_SP = models.IntegerField()
