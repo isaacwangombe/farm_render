@@ -154,3 +154,6 @@ cloudinary.config(
   api_key = "955543347862628", 
   api_secret = "fDcoDRd_45Ta9KTrg-KBQsqU9uM" 
 )
+
+ACCOUNT_ACTIVATION_DAYS = 7 
+LOGIN_REDIRECT_URL = ('/')

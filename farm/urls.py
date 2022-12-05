@@ -22,9 +22,10 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('management.urls')),
     path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('logout/', views.LogoutView.as_view( next_page = '/')),
+    path('', include('management.urls')),
+
     
 ]

@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <img class="demo-bg" src="/static/images/back3.jpg" alt="">
+  <!-- <img class="demo-bg" src="/static/images/back3.jpg" alt=""> -->
 
   {% include 'navbar.html'%} {% block content %} {% block scripts%} {% bootstrap_javascript %}
   {%endblock%}{%endblock%}
@@ -33,6 +33,7 @@
     position: absolute;
     min-height: 100vh;
     min-width: 100vw;
+    z-index: 0;
   }
 </style>
 
